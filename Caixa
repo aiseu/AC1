@@ -1,1 +1,141 @@
+package caixa.eletronico;
+import java.util.Scanner;
+        
+public class CaixaEletronico {
+    
+    static int menu,saldo,saque,deposito,resultado,test,y;
+     static String senha;
+      static double x = 1000.00;
+      static String cpf;
+    
+    
+    public static void menu(){
+        Scanner ler = new Scanner(System.in);
 
+        for(int o = 1; o <=3; o++){
+        System.out.println("Bem-Vindo ao Caixa 24h");
+        System.out.print("Por-favor digite o seu CPF: ");
+        cpf=ler.next();
+        
+        if(cpf.equals("123.456.789-00") == true || cpf.equals("12345678900") == true){
+          System.out.println("====================================");  
+          System.out.println("Seja Bem-vindo invocador");
+          System.out.println("====================================");
+        
+        } else{
+          System.out.println("");  
+          System.out.println("CPF invalido");
+          System.exit(0);
+        }
+        
+        
+          for(int p = 1; p >=0; p++){
+            System.out.print("Por favor digite sua senha: ");
+            senha = ler.next();
+            
+          if(senha.equals ("01020304") == true) {
+              System.out.println("");
+                 break;
+          
+          } else if(p == 3){
+              System.out.println("Conta Bloqueada");
+              System.exit(0);
+        
+          } else if (senha != "01020304"){
+              System.out.println("Senha invalido, Por favor tente novamente");
+         
+        }
+          }
+          for(int i = 1; i >=0; i++){
+         System.out.println("==================");
+         System.out.println("1 - Saldo ");
+         System.out.println("2 - Depósito");
+         System.out.println("3 - Saque ");
+         System.out.println("0 - Sair ");
+
+         
+         System.out.println("==================");
+      
+         System.out.print("Escolha uma opção: ");
+         menu = ler.nextInt();
+         
+         
+               switch (menu) {
+             case 1:
+               System.out.println("Seu saldo é de: "+x);
+               System.out.println("");
+               System.out.println("=========================================================================");
+               System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("");
+                    menu();
+                }else{
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+
+             case 2:
+               System.out.print("Digite o valor do deposito: ");
+               deposito = ler.nextInt();  
+               y = (int) (x+deposito);
+               System.out.println("Seu saldo é de: "+y);
+               System.out.println("");
+               System.out.println("=========================================================================");
+               System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("");
+                    menu();
+                }else{
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+
+             case 3:
+                 System.out.print("Digite a quantidade que deseja sacar: ");
+                 saque = ler.nextInt(); 
+                 y = (int) (x-saque);
+                 System.out.println("Seu saldo é de: "+y);
+                 System.out.println("");
+               System.out.println("=========================================================================");
+               System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.println("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("");
+                    menu();
+                }else{
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+
+             case 0:
+               System.out.println("Obrigado, Volte Sempre");
+               System.out.println("=============================--------=============================");
+               System.out.println("");
+               menu();  
+              
+             default:
+                 System.out.println("Invalido"); 
+    
+}
+    }
+        }
+    }
+    public static void main(String[] args) {
+     menu();
+
+}
+}  
